@@ -10,7 +10,7 @@ public class Memento implements IMemento {
     private LocalDateTime timestamp;
 
     public Memento(int[] options, boolean isSelected) {
-        this.options = options.clone(); // Copy options array
+        this.options = options.clone();
         this.isSelected = isSelected;
         this.timestamp = LocalDateTime.now();
         System.out.println("Memento created");
@@ -32,7 +32,7 @@ public class Memento implements IMemento {
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         return String.format("[%s] Options: %s | Selected: %b",
-                timestamp.format(formatter),
+                getTimestamp().format(formatter),
                 Arrays.toString(options),
                 isSelected);
     }
